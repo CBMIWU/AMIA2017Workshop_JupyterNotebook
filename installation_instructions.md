@@ -6,7 +6,7 @@ After installation, please follow the instructions to get the research data from
 
 Options:
 
-## Option 1. Installing Jupyter as part of Anaconda 
+## Option 1. Installing Jupyter as part of Anaconda (Windows, Mac, Linux)
 
 Minimum System Requirements: macOS 10.12.3 or higher is recommended. Linux version is also available. 32-bit and 64-bit systems are supported.
 
@@ -28,19 +28,19 @@ Anaconda is the leading open-source data science platform powered by Python.
 Anaconda R essentials comes with 80+ R packages such as dplyr and ggplot2. 
 
 
-## Option 2. Installing Jupyter on Docker (in general).
+## Option 2. Installing Jupyter on Docker (Windows, Mac, Linux)
 
 Minimum System Requirements: macOS 10.8 “Mountain Lion” or newer is required. Linux version is also available. Your system should be 64-bit. 
 
-NOTE: $ (dollar sign) Designates start of command you will run in Docker Quickstart window
+NOTE: $ (dollar sign) designates start of command you will run in Docker.
 
 1. Download Docker Toolbox Installer and run it - https://www.docker.com/products/docker-toolbox. If you are running a newer version of macOS (10.10.3 Yosemite or newer), you may download full Docker for Mac: https://download.docker.com/mac/stable/Docker.dmg 
 2. Start Docker Quickstart and let Docker start up. Make a note of the IP for default machine displayed below the whale picture. You will need to use it for Jupyter Server URL later.
-3. Start up a docker machine, a) with default configuration or b) with specific configuration (allocates 6GB of RAM, but you can adjust that value)
+3. Start up a docker machine, a) with default configuration
 ```
 `$ docker-machine ssh default`
 ```
-OR
+OR b) with specific configuration (allocates 6GB of RAM, but you can adjust that value)
 ```
 `$ docker-machine rm default`
 `$ docker-machine create -d virtualbox --virtualbox-memory=6144 --virtualbox-cpu-count=2 --virtualbox-disk-size=50000 default`
@@ -58,14 +58,20 @@ This might take some time, because the image is quite large (about 5.5GB). Techn
 $ docker save conniez/all-spark-notebook > jupyter_datasci.tar
 ```
 6. At any point you then can load it (without relying on internet): `$ docker load < jupyter_datasci.tar`
-Within that image, run a container, specifying port, local directory (outside VM) to mount the Notebook files to, and image name (change the underlined path, but keep the rest the same): 
-```
-$ docker run -it --rm -p 8888:8888 -v /path/to/folder/to/mount/jupyter:/home/jovyan/work/notebooks conniez/all-spark-notebook
-```
+Within that image, run a container, specifying port, local directory (outside VM) to mount the Notebook files to, and image name (change the bold path, but keep the rest the same): 
+
+$ docker run -it --rm -p 8888:8888 -v **_/path/to/folder/to/mount/jupyter_**:/home/jovyan/work/notebooks conniez/all-spark-notebook
+
 After the container is created you will be able to copy the URL where Jupyter Notebook is hosted on your computer. For example: http://localhost:8888/tree?token=5b4f2a261e48cec506822d3756381306f87c44a18a27079e. The token is for automatic login into the server. This URL can be pasted into your browser to access the Notebook server. You need to replace “localhost” with the default machine IP you have noted from the startup message in Docker Quickstart.
+
 At this point, feel free to create Jupyter Notebooks through the UI. Any notebook files you create, you can access in the directory you mounted the Container to. For example: /c/Users/Username/Documents/Notebooks. You can also create folders inside that directory to keep resource files for data or copy other scripts.
 
-## Option 3. For Advanced Users: Installing Jupyter from command line (prerequisite: Python and R)
+## Option 3. For Advanced Users: Installing Jupyter from Command Line 
+
+We will not cover this option during the workshop, this might not work on all systems.
+
+Prerequisites: Python and R
+
 ```
 sudo easy_install pip 
 pip install jupyter
