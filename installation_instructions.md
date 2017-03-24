@@ -104,6 +104,7 @@ To save time during the workshop, please download the data files prior to the wo
 - **width.txt** - length of each meaningful variable in BREAST.TXT
 - **name.txt** - SAS name of each meaningful variable in BREAST.TXT
 - **ss_surg_surgprif_map.csv** - file mapping Site Specific Surgery codes between ontologies used in different time periods.
+- **other Rdata files** - intermediate datasets saved from various steps in the notebooks to speed up demo at the workshop
 
 The BREAST.TXT file was acquired by request from the SEER database: https://seer.cancer.gov/data/access.html
 
